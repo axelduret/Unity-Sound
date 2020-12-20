@@ -1,0 +1,67 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+	<div id="page">
+		<main class="main-content col" role="main">
+			{{flash_alert()}}
+			<section class="section">
+				<section class="col-12 m-0 p-0 region region-content">
+					<div class="container-fluid video-container">
+						<div class="row">
+
+							{% for video in videos %}
+
+								<div class="col-md-6 video-main-col">
+									<div aria-hidden="true" aria-labelledby="modal-title{{video.url}}" class="modal fade" id="modal{{video.url}}" role="dialog" tabindex="-1">
+										<div class="modal-dialog modal-lg" role="document">
+											<div class="modal-content bg-dark color-light">
+												<div class="modal-body color-light iframe-modal">
+													<div class="embed-responsive embed-responsive-16by9 z-depth-3">
+														<iframe allowfullscreen="1" class="embed-responsive-item video-iframe" id="iframe{{video.url}}" src="https://www.youtube.com/embed/{{video.url}}" width="100%"></iframe>
+													</div>
+												</div>
+												<div class="modal-footer pt-0 justify-content-center iframe-modal-footer">
+													<button class="btn btn-outline btn-rounded btn-sm m-0 iframe-modal-button" data-dismiss="modal" type="button">Close</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="shadow video-img-div" data-target="#modal{{video.url}}" data-toggle="modal" title="{{video.artist}}">
+										<a><img alt="video" class="img-fluid z-depth-1 video-img" src="https://img.youtube.com/vi/{{video.url}}/sddefault.jpg"/>
+											<div class="badge video-img-episode-badge">
+												<div>
+													<i class="far fa-bookmark"></i>&nbsp;Episode:&nbsp;{{video.episode}}</div>
+												<div class="video-img-date-badge">
+													<i class="far fa-clock"></i>&nbsp;{{convertDate(video.date)}}
+												</div>
+											</div>
+											<span class="fa-stack video-play-logo-group">
+												<i class="fas fa-circle fa-stack-1x video-play-logo-circle"></i>
+												<i class="far fa-play-circle fa-stack-1x video-play-logo-play-circle" data-fa-transform="shrink-2" data-fa-mask="fas fa-circle"></i>
+											</span>
+										</a>
+										<div class="row svg-row-div">
+											<div class="svg-row-innerDiv">
+												{{ include('logo.twig') }}
+											</div>
+											<div class="badge video-title-div">
+												<h5>
+													<span class="video-title-span">{{video.title}}</span>
+												</h5>
+												<span id="modal-title{{video.url}}" class="video-artist-span">Feat.&nbsp;{{truncate(video.artist, 40)}}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							{% endfor %}
+
+						</div>
+					</div>
+				</section>
+			</section>
+		</main>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{
+  "name": "unitysound",
+  "author": "Axel Web Dev",
+  "description": "Unity Sound Website -  NPM scripts and dependencies",
+  "license": "MIT",
+  "scripts": {
+    "sass:watch": "sass --watch src/scss:src/css",
+    "sass:minify": "sass --watch src/scss:dist/css --style compressed",
+    "css:minify": "css-minify --dir src/css --output dist/css"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "sass": "^1.30.0"
+  },
+  "devDependencies": {
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
+}

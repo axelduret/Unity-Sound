@@ -1,0 +1,13 @@
+{
+    "name": "unitysound/twig",
+    "description": "Unity Sound Website - Twig template",
+    "authors": [
+        {
+            "name": "Axel Web Dev"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "twig/twig": "^3.1"
+    }
+}

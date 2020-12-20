@@ -1,0 +1,20 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+	<div id="page">
+		<section class="main-content col" role="main">
+
+			{{flash_alert()}}
+
+			<div class="content-innerDiv">
+
+				<h1>Welcome
+					{{username}}</h1>
+
+			</div>
+
+		</section>
+	</div>
+
+{% endblock %}

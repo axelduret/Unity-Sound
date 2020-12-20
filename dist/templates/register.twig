@@ -1,0 +1,59 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+	<div id="page">
+		<section class="main-content col" role="main">
+
+			<div class="content-innerDiv">
+
+				<h1>Sign Up</h1>
+
+				<form action="" method="POST" id="validate-form">
+
+					<div class=" div-form">
+
+						<label for="">Username</label>
+
+						<input type="text" name="username" class="content-input-text"/>
+
+					</div>
+
+					<div class="div-form">
+
+						<label for="">Email</label>
+
+						<input type="text" name="email" class="content-input-text"/>
+
+					</div>
+
+					<div class="div-form">
+
+						<label for="">Password</label>
+
+						<input type="password" name="password" class="content-input-text"/>
+
+					</div>
+
+					<div class="div-form">
+
+						<label for="">Confirm Password</label>
+
+						<input type="password" name="password_confirm" class="content-input-text"/>
+
+					</div>
+
+					<div class="div-form-submit">
+
+						<input type="submit" class="input-submit g-recaptcha" data-sitekey="6LfPPg4aAAAAAP6LwJZ0vZeBSvwO2WlWVPSZ7DQi" data-callback="onSubmit" data-action="submit" value="submit"/>
+
+					</div>
+
+				</form>
+
+
+			</div>
+
+		</section>
+	</div>
+{% endblock %}
