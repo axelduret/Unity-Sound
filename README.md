@@ -1,11 +1,11 @@
-<a href="http://unitysound.ch">Unity Sound System</a>
+<h1><a href="http://unitysound.ch">Unity Sound System</a></h1>
 
-Beta Version : 1.3
-Released Date : 20.12.2020 21:24
-Author : Axel Duret 2020-2021 &copy;
+<p>Beta Version : 1.3</p>
+<p>Released Date : 20.12.2020 21:24</p>
+<p>Author : Axel Duret 2020-2021 &copy;</p>
 
-PHP version : 7.4.11
-DB Server : 10.4.14-MariaDB - mariadb.org
+<p>PHP version : 7.4.11</p>
+<p>DB Server : 10.4.14-MariaDB - mariadb.org</p>
 
 Node Modules :
 
