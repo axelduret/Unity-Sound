@@ -223,7 +223,7 @@ function video_fetch()
 {
     require_once __DIR__ . '/db.php';
 
-    $videos = $pdo->query('SELECT * FROM videos ORDER BY id DESC LIMIT 12');
+    $videos = $pdo->query('SELECT * FROM videos WHERE published = \'1\' ORDER BY id DESC LIMIT 12');
 
     return $videos;
 }
