@@ -1,16 +1,22 @@
 {% extends "layout.twig" %}
 
+{% import "form.twig" as form %}
+
 {% block content %}
+
+	{{ registered_user() }}
 
 	<div id="page">
 		<section class="main-content col" role="main">
 
-			{{flash_alert()}}
+			{{ flash_alert() }}
 
 			<div class="content-innerDiv">
 
 				<h1>Welcome
-					{{user_name}}</h1>
+					{{user_name}}
+					on
+					{{ current_page }}</h1>
 				{% if user_role == '1' %}
 					<table class="table table-light rounded">
 						<thead>
@@ -70,6 +76,21 @@
 							{% endfor %}
 						</tbody>
 					</table>
+
+					<form action="?id=account" method="post">
+						<div class="row">
+							{{ form.input("title", "Titre", "", "Unity Sound Station", { class: "col" }) }}
+							{{ form.input("url", "Url", "ex: D2T4zbrcTCE", "", { class: "col" }) }}
+						</div>
+						<div class="row">
+							{{ form.input("artist", "Artistes", "Feat.", "", { class: "col" }) }}
+							{{ form.input("episode", "Episode", "Entrer le numéro", "", { class: "col" }) }}
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-dark">Envoyer</button>
+						</div>
+					</form>
+
 					{% elseif user_role == '2' %}editor
 				{% else %}
 					no role
