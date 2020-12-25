@@ -16,10 +16,14 @@ $twig = new \Twig\Environment($loader, [
     'cache' => false // __DIR__ . '/tmp'
 ]);
 
-$page = 'video';
+$page = 'home';
 
 if (isset($_GET['id'])) {
     $page = $_GET['id'];
+}
+
+if (!is_file(__DIR__ . '/templates/' . $page . '.twig')) {
+    $page = 'default';
 }
 
 if (isset($_SESSION['auth'])) {
@@ -41,6 +45,11 @@ if (isset($_SESSION['auth'])) {
 $twig->addGlobal('current_page', $page);
 
 $twig->addExtension(new custom_extensions());
+
+
+$twig->addFunction(new \Twig\TwigFunction('menu_sidebar', function () {
+    menu_sidebar();
+}, ['is_safe' => ['html', 'javascript']]));
 
 $twig->addFunction(new \Twig\TwigFunction('confirm_account', function () {
     confirm_account();
