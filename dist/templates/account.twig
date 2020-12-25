@@ -10,7 +10,70 @@
 			<div class="content-innerDiv">
 
 				<h1>Welcome
-					{{username}}</h1>
+					{{user_name}}</h1>
+				{% if user_role == '1' %}
+					<table class="table table-light rounded">
+						<thead>
+							<tr>
+								<th scope="col" class="badge-warning">Id</th>
+								<th scope="col" class="badge-warning">Nom</th>
+								<th scope="col" class="badge-warning">Email</th>
+								<th scope="col" class="badge-warning">Date</th>
+								<th scope="col" class="badge-warning">Role</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>{{user_id}}</td>
+								<td>{{user_name}}</td>
+								<td>{{user_email}}</td>
+								<td>{{user_date}}</td>
+								<td>
+									{% if user_role == '1' %}Admin
+										{% elseif user_role == '2' %}Editor
+										{% else %}No role
+									{% endif %}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="table table-light rounded">
+						<thead>
+							<tr>
+								<th scope="col" class="badge-success">Id</th>
+								<th scope="col" class="badge-success">Nom</th>
+								<th scope="col" class="badge-success">Email</th>
+								<th scope="col" class="badge-success">Active</th>
+								<th scope="col" class="badge-success">Date</th>
+								<th scope="col" class="badge-success">Role</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for user in users %}
+								<tr>
+									<td>{{user.id}}</td>
+									<td>{{user.username}}</td>
+									<td>{{user.email}}</td>
+									<td>
+										{% if user.confirmation_token != null %}No
+											{% else %}Yes
+										{% endif %}
+									</td>
+									<td>{{user.confirmed_at}}</td>
+									<td>
+										{% if user.role == '1' %}Admin
+											{% elseif user.role == '2' %}Editor
+											{% else %}No role
+										{% endif %}
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					{% elseif user_role == '2' %}editor
+				{% else %}
+					no role
+				{% endif %}
 
 			</div>
 

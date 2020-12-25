@@ -54,6 +54,10 @@ $twig->addFunction(new \Twig\TwigFunction('video_fetch', function () {
     video_fetch();
 }));
 
+$twig->addFunction(new \Twig\TwigFunction('user_fetch', function () {
+    user_fetch();
+}));
+
 $page = 'video';
 
 if (isset($_GET['id'])) {
@@ -82,7 +86,12 @@ switch ($page) {
     case 'account':
         echo $twig->render('account.twig', [
             'registered_user' => registered_user(),
-            'username' => $_SESSION['auth']->username
+            'user_id' => $_SESSION['auth']->id,
+            'user_name' => $_SESSION['auth']->username,
+            'user_email' => $_SESSION['auth']->email,
+            'user_date' => $_SESSION['auth']->confirmed_at,
+            'user_role' => $_SESSION['auth']->role,
+            'users' => user_fetch()
         ]);
         break;
     case 'confirm':

@@ -156,8 +156,6 @@ function register()
 function confirm_account()
 {
 
-    defined('open_access') or die('Restricted access');
-
     $user_id = $_GET['user'];
 
     $token = $_GET['token'];
@@ -169,11 +167,6 @@ function confirm_account()
     $req->execute([$user_id]);
 
     $user = $req->fetch();
-
-    if (session_status() == PHP_SESSION_NONE) {
-
-        session_start();
-    }
 
     if ($user && $user->confirmation_token == $token) {
 
@@ -195,11 +188,6 @@ function confirm_account()
 function registered_user()
 {
 
-    if (session_status() == PHP_SESSION_NONE) {
-
-        session_start();
-    }
-
     if (!isset($_SESSION['auth'])) {
 
         $_SESSION['flash']['error'] = "Access denied";
@@ -219,11 +207,20 @@ function logout()
     header('Location: index.php');
 }
 
+function user_fetch()
+{
+    require_once __DIR__ . '/db.php';
+
+    $users = $pdo->query('SELECT * FROM users ORDER BY id ASC');
+
+    return $users;
+}
+
 function video_fetch()
 {
     require_once __DIR__ . '/db.php';
 
-    $videos = $pdo->query('SELECT * FROM videos WHERE published = \'1\' ORDER BY id DESC LIMIT 12');
+    $videos = $pdo->query('SELECT * FROM videos WHERE published = \'1\' ORDER BY id DESC');
 
     return $videos;
 }
