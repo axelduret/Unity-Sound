@@ -1,0 +1,2 @@
+1. créer un fichier css minifié et retirer le mapping
+2. activer le cache dans index.php
