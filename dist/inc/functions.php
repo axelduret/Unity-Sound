@@ -23,7 +23,7 @@ function menu_sidebar()
             $current_page = $_GET['id'];
         }
         if ($url == $current_page) {
-            echo "<div class=\"menu-item-active shadow-sm\">
+            echo "<div class=\"menu-item-active shadow-sm\" title=\"$tooltip\">
             <div class=\"row m-0 px-2\">
             <div class=\"col-2 m-0 p-0 text-center\" style=\"min-width:16.666px\"><i class=\"$icon\"></i></div>
             <div class=\"col m-0 p-0 pl-2 text-left\">$title</div>
