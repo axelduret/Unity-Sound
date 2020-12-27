@@ -1,6 +1,25 @@
 /* Start Custom JQuery Functions */
 (function ($) {
 
+  /* All pages */
+  /* Close flash message when clicking on itself */
+  if (($(".content-successDiv").length) || ($(".content-errorDiv").length)) {
+    /* Success message */
+    $(".content-successDiv")
+      .append("<div class='text-right w-100 m-0 p-0 pr-4' style='position:absolute; top:0.5rem'><i class='fas fa-times'></i></div>")
+      .appendTo(".content-successDiv");
+    $(".content-successDiv").on('click', function (_e) {
+      $(".content-successDiv").remove();
+    });
+    /* Error message */
+    $(".content-errorDiv")
+      .append("<div class='text-right w-100 m-0 p-0 pr-4' style='position:absolute; top:0.5rem'><i class='fas fa-times'></i></div>")
+      .appendTo(".content-errorDiv");
+    $(".content-errorDiv").on('click', function (_e) {
+      $(".content-errorDiv").remove();
+    });
+  }
+
   /* Video page */
   /* Video pause when closing modal */
   $('.modal').on('hidden.bs.modal', function (_e) {
