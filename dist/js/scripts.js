@@ -1,3 +1,6 @@
+/* Axel Web Dev */
+/* MIT License - Copyright 2002-2021 */
+
 /* Start Custom JQuery Functions */
 (function ($) {
 
