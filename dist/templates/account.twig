@@ -1,24 +1,13 @@
 {% extends "layout.twig" %}
-
 {% import "form.twig" as form %}
-
 {% block content %}
-
 	{{ registered_user() }}
-
 	<div id="page">
 		<section class="main-content col" role="main">
-
 			{{ flash_alert() }}
-
 			<div
 				class="content-innerDiv">
-
-				{# 				<h1>Welcome
-																																	{{user_name}}
-																																	on
-																																	{{ current_page }}</h1> #}
-
+				{# <h1>Welcome {{ user_name }} on {{ current_page }}</h1> #}
 				{% if user_role == '1' %}
 					<table class="table table-light rounded">
 						<thead>
@@ -84,9 +73,7 @@
 				{% else %}
 					Role: standard user
 				{% endif %}
-
 			</div>
-
 		</section>
 	</div>
 {% endblock %}
