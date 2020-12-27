@@ -23,7 +23,13 @@ if (isset($_GET['id'])) {
 }
 
 if (!is_file(__DIR__ . '/templates/' . $page . '.twig')) {
-    $page = 'default';
+    if ($_GET['id'] == 'confirm') {
+        $page = 'confirm';
+    } elseif ($_GET['id'] == 'logout') {
+        $page = 'logout';
+    } else {
+        $page = 'default';
+    }
 }
 
 if (isset($_SESSION['auth'])) {
@@ -46,9 +52,16 @@ $twig->addGlobal('current_page', $page);
 
 $twig->addExtension(new custom_extensions());
 
+$twig->addFunction(new \Twig\TwigFunction('main_menu_sidebar', function () {
+    main_menu_sidebar();
+}, ['is_safe' => ['html', 'javascript']]));
 
-$twig->addFunction(new \Twig\TwigFunction('menu_sidebar', function () {
-    menu_sidebar();
+$twig->addFunction(new \Twig\TwigFunction('media_menu_sidebar', function () {
+    media_menu_sidebar();
+}, ['is_safe' => ['html', 'javascript']]));
+
+$twig->addFunction(new \Twig\TwigFunction('member_menu_sidebar', function () {
+    member_menu_sidebar();
 }, ['is_safe' => ['html', 'javascript']]));
 
 $twig->addFunction(new \Twig\TwigFunction('confirm_account', function () {
@@ -63,6 +76,10 @@ $twig->addFunction(new \Twig\TwigFunction('videos_fetch', function () {
     videos_fetch();
 }));
 
+$twig->addFunction(new \Twig\TwigFunction('videos_list', function () {
+    videos_list();
+}));
+
 $twig->addFunction(new \Twig\TwigFunction('users_fetch', function () {
     users_fetch();
 }));
@@ -70,6 +87,9 @@ $twig->addFunction(new \Twig\TwigFunction('users_fetch', function () {
 switch ($page) {
     case 'home':
         echo $twig->render('home.twig');
+        break;
+    case 'info':
+        echo $twig->render('info.twig');
         break;
     case 'video':
         echo $twig->render('video.twig', [
@@ -90,7 +110,8 @@ switch ($page) {
             'user_token' => $user_token,
             'user_date' => $user_date,
             'user_role' => $user_role,
-            'users' => users_fetch()
+            'users' => users_fetch(),
+            'videos' => videos_list()
         ]);
         break;
     case 'confirm':

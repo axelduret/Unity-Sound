@@ -2,11 +2,10 @@
 
 {% block content %}
 
-	{{ register() }}
 
 	<div id="page">
 		<section class="main-content col" role="main">
-
+			{{ register() }}
 			<div class="content-innerDiv">
 
 				<h1>Sign Up</h1>
@@ -47,7 +46,7 @@
 
 					<div class="div-form-submit">
 
-						<input type="submit" class="input-submit g-recaptcha" data-sitekey="6LfPPg4aAAAAAP6LwJZ0vZeBSvwO2WlWVPSZ7DQi" data-callback="onSubmit" data-action="submit" value="submit"/>
+						<input type="submit" class="input-submit g-recaptcha" {# data-sitekey="6LfPPg4aAAAAAP6LwJZ0vZeBSvwO2WlWVPSZ7DQi" data-callback="onSubmit" data-action="submit" #} value="submit"/>
 
 					</div>
 

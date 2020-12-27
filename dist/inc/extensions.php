@@ -9,6 +9,7 @@ class custom_extensions extends \Twig\Extension\AbstractExtension
         return [
             new \Twig\TwigFunction('truncate', [$this, 'truncate']),
             new \Twig\TwigFunction('convertDate', [$this, 'convertDate']),
+            new \Twig\TwigFunction('minimalDate', [$this, 'minimalDate']),
             new \Twig\TwigFunction('flash_alert', [$this, 'flash_alert']),
             new \Twig\TwigFunction('user_login', [$this, 'user_login']),
             new \Twig\TwigFunction('registered_user', [$this, 'registered_user']),
@@ -25,6 +26,13 @@ class custom_extensions extends \Twig\Extension\AbstractExtension
     {
         $timestamp = strtotime($date);
         $newDate = date("d M. Y", $timestamp);
+        return $newDate;
+    }
+
+    public function minimalDate($date)
+    {
+        $timestamp = strtotime($date);
+        $newDate = date("d-m-y", $timestamp);
         return $newDate;
     }
 
@@ -48,7 +56,7 @@ class custom_extensions extends \Twig\Extension\AbstractExtension
         if (!empty($_POST)) {
             if (!empty($_POST['username']) && !empty($_POST['password'])) {
 
-                require_once __DIR__ . '/db.php';
+                require __DIR__ . '/db.php';
 
                 $req = $pdo->prepare('SELECT * FROM users WHERE (username = :username OR email = :username) AND confirmed_at IS NOT NULL');
 
@@ -99,7 +107,7 @@ class custom_extensions extends \Twig\Extension\AbstractExtension
 
             $errors = array();
 
-            require_once __DIR__ . '/db.php';
+            require __DIR__ . '/db.php';
 
             if (empty($_POST['username']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['username'])) {
 

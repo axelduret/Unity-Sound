@@ -1,2 +1,3 @@
-1. créer un fichier css minifié et retirer le mapping
-2. activer le cache dans index.php
+1. réactiver le captcha dans login.twig et register.twig
+2. créer un fichier css minifié et y retirer le mapping
+3. activer le cache dans index.php
