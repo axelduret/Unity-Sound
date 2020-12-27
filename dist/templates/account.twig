@@ -11,12 +11,14 @@
 
 			{{ flash_alert() }}
 
-			<div class="content-innerDiv">
+			<div
+				class="content-innerDiv">
 
-				<h1>Welcome
-					{{user_name}}
-					on
-					{{ current_page }}</h1>
+				{# 				<h1>Welcome
+													{{user_name}}
+													on
+													{{ current_page }}</h1> #}
+
 				{% if user_role == '1' %}
 					<table class="table table-light rounded">
 						<thead>
@@ -90,7 +92,7 @@
 									</div>
 									<div class="form-group col-4">
 										<label for="episode">Episode</label>
-										<input type="number" class="form-control" placeholder="ex: 33" id="episode" name="episode" min="12" max="99">
+										<input type="number" class="form-control" placeholder="ex: 33" id="episode" name="episode" min="0" max="99">
 									</div>
 								</div>
 								<div class="row">
@@ -110,10 +112,10 @@
 								</div>
 								<div class="row">
 									<div class="form-group col text-right">
-										<button type="button" class="btn btn-success" data-toggle="modal" data-target="#previewModal">Aperçu</button>
+										<button type="button" class="btn btn-success" id="previewButton">Aperçu</button>
 									</div>
 									<div class="modal fade" id="previewModal" aria-labelledby="previewModalLabel" aria-hidden="true" role="dialog" tabindex="-1">
-										<div class="modal-dialog modal-lg" role="document">
+										<div class="modal-dialog modal-md" role="document">
 											<div class="modal-content">
 												<div class="modal-header">
 													<h5 class="modal-title text-dark" id="previewModalLabel">Sauvegarder les modifications?</h5>
@@ -122,27 +124,15 @@
 
 
 													<div class="video-main-col">
-														<div aria-hidden="true" aria-labelledby="modal-title{{video.url}}" class="modal fade" id="modal{{video.url}}" role="dialog" tabindex="-1">
-															<div class="modal-dialog modal-lg" role="document">
-																<div class="modal-content bg-dark color-light">
-																	<div class="modal-body color-light iframe-modal">
-																		<div class="embed-responsive embed-responsive-16by9 z-depth-3">
-																			<iframe allowfullscreen="1" class="embed-responsive-item video-iframe" id="iframe{{video.url}}" src="https://www.youtube.com/embed/{{video.url}}" width="100%"></iframe>
-																		</div>
-																	</div>
-																	<div class="modal-footer pt-0 justify-content-center iframe-modal-footer">
-																		<button class="btn btn-outline btn-rounded btn-sm m-0 iframe-modal-button" data-dismiss="modal" type="button">Close</button>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<div class="shadow video-img-div" data-target="#modal{{video.url}}" data-toggle="modal" title="{{video.artist}}">
-															<a><img alt="video" class="img-fluid z-depth-1 video-img" src="https://img.youtube.com/vi/{{video.url}}/hqdefault.jpg"/>
+														<div class="shadow video-img-div-preview">
+															<a><img alt="video" class="img-fluid z-depth-1 video-img" id="videoUrl" src=""/>
 																<div class="badge video-img-episode-badge">
 																	<div>
-																		<i class="far fa-bookmark"></i>&nbsp;Episode:&nbsp;{{video.episode}}</div>
+																		<i class="far fa-bookmark"></i>&nbsp;Episode:&nbsp;<span id="videoEpisode"></span>
+																	</div>
 																	<div class="video-img-date-badge">
-																		<i class="far fa-clock"></i>&nbsp;{{convertDate(video.date)}}
+																		<i class="far fa-clock"></i>
+																		<span id="videoDate"></span>
 																	</div>
 																</div>
 																<span class="fa-stack video-play-logo-group">
@@ -156,9 +146,9 @@
 																</div>
 																<div class="badge video-title-div">
 																	<h5>
-																		<span class="video-title-span">{{video.title}}</span>
+																		<span class="video-title-span" id="videoTitle"></span>
 																	</h5>
-																	<span id="modal-title{{video.url}}" class="video-artist-span">Feat.&nbsp;{{truncate(video.artist, 40)}}</span>
+																	<span id="videoArtist" class="video-artist-span"></span>
 																</div>
 															</div>
 														</div>
@@ -209,7 +199,128 @@
 							</table>
 						</div>
 					</div>
-					{% elseif user_role == '2' %}editor
+				{% elseif user_role == '2' %}
+					<div class="row px-2">
+						<div class="col pr-1">
+							<h1>Ajouter une video</h1>
+							<form action="?id=account" method="post">
+								<div class="row">
+									<div class="form-group col-8 pr-0">
+										<label for="title">Emission</label>
+										<select type="text" class="form-control" id="title" name="title">
+											<option value="Unity Sound Station" selected>Unity Sound Station</option>
+											{# <option value=""></option> #}
+										</select>
+									</div>
+									<div class="form-group col-4">
+										<label for="episode">Episode</label>
+										<input type="number" class="form-control" placeholder="ex: 33" id="episode" name="episode" min="0" max="99">
+									</div>
+								</div>
+								<div class="row">
+									{{ form.input("artist", "Artistes", "ex: Unity Sound & David Rodigan", "", "", { class: "col" }) }}
+								</div>
+								<div class="row">
+									{{ form.input("url", "Url", "ex: D2T4zbrcTCE", "", "", { class: "col-7 pr-0" }) }}
+									<div class="form-group col-5">
+										<label for="date">Date</label>
+										<input type="date" class="form-control" id="date" name="date">
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col text-left">
+										<a class="text-light" href="https://www.youtube.com/channel/UCf6nzX_927ZVTM6uP9KYX7w" target="_blank">(Rechercher sur Youtube)</a>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col text-right">
+										<button type="button" class="btn btn-success" id="previewButton">Aperçu</button>
+									</div>
+									<div class="modal fade" id="previewModal" aria-labelledby="previewModalLabel" aria-hidden="true" role="dialog" tabindex="-1">
+										<div class="modal-dialog modal-md" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title text-dark" id="previewModalLabel">Sauvegarder les modifications?</h5>
+												</div>
+												<div class="modal-body text-dark">
+
+
+													<div class="video-main-col">
+														<div class="shadow video-img-div-preview">
+															<a><img alt="video" class="img-fluid z-depth-1 video-img" id="videoUrl" src=""/>
+																<div class="badge video-img-episode-badge">
+																	<div>
+																		<i class="far fa-bookmark"></i>&nbsp;Episode:&nbsp;<span id="videoEpisode"></span>
+																	</div>
+																	<div class="video-img-date-badge">
+																		<i class="far fa-clock"></i>
+																		<span id="videoDate"></span>
+																	</div>
+																</div>
+																<span class="fa-stack video-play-logo-group">
+																	<i class="fas fa-circle fa-stack-1x video-play-logo-circle"></i>
+																	<i class="far fa-play-circle fa-stack-1x video-play-logo-play-circle" data-fa-transform="shrink-2" data-fa-mask="fas fa-circle"></i>
+																</span>
+															</a>
+															<div class="row svg-row-div">
+																<div class="svg-row-innerDiv">
+																	{{ include('logo.twig') }}
+																</div>
+																<div class="badge video-title-div">
+																	<h5>
+																		<span class="video-title-span" id="videoTitle"></span>
+																	</h5>
+																	<span id="videoArtist" class="video-artist-span"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+
+
+												</div>
+												<div class="modal-footer text-dark">
+													<button type="button" class="btn btn-dark" data-dismiss="modal">Annuler</button>
+													<button type="submit" class="btn btn-danger">Enregistrer</button>
+													<label class="checkbox-inline"><input type="checkbox" value="1" checked>
+														Publier
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col">
+							<h1>Unity Sound Station</h1>
+							<table class="table table-dark">
+								<thead>
+									<tr>
+										<th scope="col" class="badge-warning">#</th>
+										<th scope="col" class="badge-warning">Artists</th>
+										<th scope="col" class="badge-warning">Date</th>
+										<th scope="col" class="badge-warning">Edit</th>
+										<th scope="col" class="badge-warning">Del</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for video in videos %}
+										<tr>
+											<td>{{video.episode}}</td>
+											<td width="auto">{{truncate(video.artist, 28)}}</td>
+											<td width="90px">{{minimalDate(video.date)}}</td>
+											<td class="text-center text-secondary">
+												<i class="fas fa-edit"></i>
+											</td>
+											<td class="text-center text-secondary">
+												<i class="fas fa-trash-alt"></i>
+											</td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
 				{% else %}
 					no role
 				{% endif %}
