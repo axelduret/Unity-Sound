@@ -21,6 +21,8 @@
 			</div>
 			<div class="row">
 				{{ form.input("url", "Url", "ex: D2T4zbrcTCE", "", "", { class: "col-7 pr-0" }) }}
+				{{ form.input("video_id", "", "", "", "", { type: "hidden" }) }}
+				<input type="checkbox" id="published" style="display:none" checked>
 				<div class="form-group col-5">
 					<label for="date">Date</label>
 					<input type="date" class="form-control" id="date" name="date">
@@ -76,7 +78,7 @@
 							<div class="modal-footer text-dark">
 								<button type="button" class="btn btn-dark" data-dismiss="modal">Annuler</button>
 								<button type="submit" class="btn btn-danger">Enregistrer</button>
-								<label class="checkbox-inline"><input type="checkbox" value="1" checked>
+								<label class="checkbox-inline"><input type="checkbox" id="videoPublished">
 									Publier
 								</label>
 							</div>
@@ -110,10 +112,10 @@
 							<td style="width:41px" title="Episode: {{video.episode}}">{{video.episode}}</td>
 							<td style="width:auto" title="{{video.artist}}">{{truncate(video.artist, 28)}}</td>
 							<td style="width:90px" title="{{convertDate(video.date)}}">{{minimalDate(video.date)}}</td>
-							<td class="text-center table-active" id="tdEdit" title="Modifier" style="width:52px; cursor:pointer;">
+							<td class="text-center table-active tdEdit" title="Modifier" style="width:52px; cursor:pointer;" onclick="fillForm('{{video.id}}', '{{video.episode}}', '{{video.title|e('js')}}', '{{video.artist|e('js')}}', '{{video.url|e('js')}}', '{{video.date|e('js')}}', '{{video.published}}')">
 								<i class="fas fa-edit"></i>
 							</td>
-							<td class="text-center table-active" id="tdDelete" title="Supprimer" style="width:52px; cursor:pointer;">
+							<td class="text-center table-active tdDelete" title="Supprimer" style="width:52px; cursor:pointer;">
 								<i class="fas fa-trash-alt"></i>
 							</td>
 						</tr>

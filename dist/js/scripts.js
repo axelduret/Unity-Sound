@@ -61,6 +61,9 @@
         ) +
         $("#videoUrl").attr("src",
           "https://img.youtube.com/vi/" + $("#url").val() + "/hqdefault.jpg"
+        ) +
+        $("#videoPublished").prop("checked",
+          $("#published").prop("checked")
         )
       );
     } else {
@@ -71,8 +74,25 @@
 })(jQuery);
 /* End Custom JQuery Functions */
 
+/* Video admin page */
+/* fillForm function when clicking on edit button */
+function fillForm(id, episode, title, artist, url, date, videoActive) {
+  document.getElementById('video_id').value = id;
+  document.getElementById('episode').value = episode;
+  document.getElementById('title').value = title;
+  document.getElementById('artist').value = artist;
+  document.getElementById('url').value = url;
+  document.getElementById('date').value = date;
+  console.log(videoActive);
+  if (videoActive != '0') {
+    document.getElementById('published').checked = true;
+  } else {
+    document.getElementById('published').checked = false;
+  }
+};
+
 /* Login and register page */
 /* Recaptcha Callback */
 function onSubmit(token) {
   document.getElementById("validate-form").submit()
-}
+}  
