@@ -1,8 +1,11 @@
 <h1><a href="http://unitysound.ch">Unity Sound System</a></h1>
 
-<p>Beta Version : 1.3</p>
-<p>Released Date : 20.12.2020 21:24</p>
-<p>Author : Axel Duret 2020-2021 &copy;</p>
+<p>Beta Version</p>
+<p>Released Date : 20.12.2020</p>
+<p>Last Update : not defined yet</p>
+<p>Author : Axel Duret</p>
+<p>Copyright : Unity Sound System 2002-2020 &copy;</p>
+<p>Licensed under MIT (https://github.com/axelfaya/Unity-Sound/blob/master/LICENSE)</p>
 
 <p>PHP version : 7.4.11</p>
 <p>DB Server : 10.4.14-MariaDB - mariadb.org</p>
