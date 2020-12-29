@@ -7,6 +7,10 @@ class custom_extensions extends \Twig\Extension\AbstractExtension
     public function getFunctions()
     {
         return [
+            new \Twig\TwigFunction('toLower', [$this, 'toLower']),
+            new \Twig\TwigFunction('toUpper', [$this, 'toUpper']),
+            new \Twig\TwigFunction('ucFirst', [$this, 'ucFirst']),
+            new \Twig\TwigFunction('ucWords', [$this, 'ucWords']),
             new \Twig\TwigFunction('truncate', [$this, 'truncate']),
             new \Twig\TwigFunction('convertDate', [$this, 'convertDate']),
             new \Twig\TwigFunction('minimalDate', [$this, 'minimalDate']),
@@ -15,6 +19,26 @@ class custom_extensions extends \Twig\Extension\AbstractExtension
             new \Twig\TwigFunction('registered_user', [$this, 'registered_user']),
             new \Twig\TwigFunction('register', [$this, 'register']),
         ];
+    }
+
+    public function toLower($str)
+    {
+        return strtolower($str);
+    }
+
+    public function toUpper($str)
+    {
+        return strtoupper($str);
+    }
+
+    public function ucWords($str)
+    {
+        return ucwords($str);
+    }
+
+    public function ucFirst($str)
+    {
+        return ucfirst($str);
     }
 
     public function truncate($str, $width)
