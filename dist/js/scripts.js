@@ -84,7 +84,6 @@ function fillForm(id, episode, title, artist, url, date, videoActive) {
   document.getElementById('artist').value = artist;
   document.getElementById('url').value = url;
   document.getElementById('date').value = date;
-  console.log(videoActive);
   if (videoActive != '0') {
     document.getElementById('published').checked = true;
   } else {
