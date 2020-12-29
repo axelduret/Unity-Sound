@@ -3,5 +3,9 @@ src
 
 composer.lock
 package-lock.json
+uploadProcess.md
 
+dist/error
 dist/tmp
+dist/robots.txt
+dist/.htaccess
