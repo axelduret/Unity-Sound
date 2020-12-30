@@ -1,0 +1,23 @@
+<table class="table table-striped table-dark m-0 p-0">
+	<thead class="badge-success">
+		<tr>
+			<th scope="col" class="text-dark">Username</th>
+			<th scope="col" class="text-dark">Email</th>
+			<th scope="col" class="text-dark">Registered</th>
+			<th scope="col" class="text-dark">Role</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{user_name}}</td>
+			<td>{{user_email}}</td>
+			<td>{{convertDate(user_date)}}</td>
+			<td>
+				{% if user_role == '1' %}Admin
+					{% elseif user_role == '2' %}Editor
+					{% else %}No role
+				{% endif %}
+			</td>
+		</tr>
+	</tbody>
+</table>

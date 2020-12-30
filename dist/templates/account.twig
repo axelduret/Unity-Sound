@@ -12,77 +12,30 @@
 					</h1>
 				</div>
 			</div>
-			<div class="content-innerDiv" style="margin-bottom:1rem;">
-				{% if user_role == '1' %}
-					<table class="table table-light">
-						<thead>
-							<tr>
-								<th scope="col" class="badge-warning">Id</th>
-								<th scope="col" class="badge-warning">Nom</th>
-								<th scope="col" class="badge-warning">Email</th>
-								<th scope="col" class="badge-warning">Date</th>
-								<th scope="col" class="badge-warning">Role</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>{{user_id}}</td>
-								<td>{{user_name}}</td>
-								<td>{{user_email}}</td>
-								<td>{{user_date}}</td>
-								<td>
-									{% if user_role == '1' %}Admin
-										{% elseif user_role == '2' %}Editor
-										{% else %}No role
-									{% endif %}
-								</td>
-							</tr>
-						</tbody>
-					</table>
+			{% if user_role == '1' %}
+				<div class="content-innerDiv" style="margin-bottom:1rem;">
+					{{ include('adminAccount.twig') }}
 				</div>
 				<div class="content-innerDiv" style="margin-bottom:1rem;">
-					<table class="table table-light">
-						<thead>
-							<tr>
-								<th scope="col" class="badge-success">Id</th>
-								<th scope="col" class="badge-success">Nom</th>
-								<th scope="col" class="badge-success">Email</th>
-								<th scope="col" class="badge-success">Active</th>
-								<th scope="col" class="badge-success">Date</th>
-								<th scope="col" class="badge-success">Role</th>
-							</tr>
-						</thead>
-						<tbody>
-							{% for user in users %}
-								<tr>
-									<td>{{user.id}}</td>
-									<td>{{user.username}}</td>
-									<td>{{user.email}}</td>
-									<td>
-										{% if user.confirmation_token != null %}No
-											{% else %}Yes
-										{% endif %}
-									</td>
-									<td>{{user.confirmed_at}}</td>
-									<td>
-										{% if user.role == '1' %}Admin
-											{% elseif user.role == '2' %}Editor
-											{% else %}No role
-										{% endif %}
-									</td>
-								</tr>
-							{% endfor %}
-						</tbody>
-					</table>
+					{{ include('usersAdmin.twig') }}
 				</div>
 				<div class="content-innerDiv">
 					{{ include('videoAdmin.twig') }}
-				{% elseif user_role == '2' %}
+				</div>
+			{% elseif user_role == '2' %}
+				<div class="content-innerDiv" style="margin-bottom:1rem;">
+					{{ include('editorAccount.twig') }}
+				</div>
+				<div class="content-innerDiv">
 					{{ include('videoAdmin.twig') }}
-				{% else %}
-					Role: standard user
-				{% endif %}
-			</div>
+				</div>
+			{% else %}
+				<div class="content-innerDiv" style="margin-bottom:1rem;">
+					{{ include('userAccount.twig') }}
+				</div>
+
+			{% endif %}
+
 		</section>
 	</div>
 {% endblock %}
