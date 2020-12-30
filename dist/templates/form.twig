@@ -1,17 +1,12 @@
 {% macro input(name, label, placeholder = null, value = null, required = false, options = []) %}
-
 	<div class="form-group {{ options.class }}">
 		<label for="{{ name }}">{{ label }}</label>
 		<input type="{{ options.type ?: "text" }}" class="form-control" placeholder="{{ placeholder }}" value="{{ value }}" id="{{ name }}" name="{{ name }}" {% if required == true %} required {% endif %}>
 	</div>
-
 {% endmacro input %}
-
 {% macro textarea(name, label, value = null, required = false, options = []) %}
-
 	<div class="form-group {{ options.class }}">
 		<label for="{{ name }}">{{ label }}</label>
 		<textarea type="text" class="form-control" id="{{ name }}" name="{{ name }}" {% if required == true %} required {% endif %}></textarea>
 	</div>
-
 {% endmacro textarea %}

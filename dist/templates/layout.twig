@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-
 <!-- Html -->
 <html
 	lang="en">
-
 	<!-- Head -->
 	{% include 'head.twig' %}
 	<!-- ./Head -->
-
 	<!-- Body -->
 		<body><div class="screenLeft"> </div>
 		<!-- Main -->
@@ -16,17 +13,14 @@
 			<!-- Sidebar -->
 			{% include 'sidebar.twig' %}
 			<!-- ./Sidebar -->
-
 			<!-- Page -->
 				<div
 				class="page"> <!-- Header -->
 				{% include 'header.twig' %}
 				<!-- ./Header -->
-
 				<!-- Main Content -->{% block content %}
 				{% endblock content %}
 				<!-- ./Main Content -->
-
 				<!-- Footer -->
 			{% include 'footer.twig' %}
 				<!-- ./Footer -->
@@ -38,9 +32,7 @@
 		<!-- Scripts -->
 		{% include 'scripts.twig' %}
 		<!-- ./Scripts -->
-
 	</body>
 	<!-- ./Body -->
-
 </html>
 <!-- ./Html -->

@@ -1,53 +1,31 @@
 {% extends "layout.twig" %}
-
 {% block content %}
-
 	{{ user_login() }}
-
 	<div id="page">
 		<section class="main-content col" role="main">
-
 			{{flash_alert()}}
-
 			<div class="content-titleDiv">
 				<div class="main-content-title">
 					<h1>
-						Sign In
+						Log Into Your Account
 					</h1>
 				</div>
 			</div>
 			<div class="content-innerDiv">
 				<form action="" method="POST" id="validate-form">
-
 					<div class="div-form">
-
 						<label for="">Username or email</label>
-
 						<input type="text" name="username" class="content-input-text"/>
-
 					</div>
-
 					<div class="div-form">
-
 						<label for="">Password</label>
-
 						<input type="password" name="password" class="content-input-text"/>
-
 					</div>
-
 					<div class="div-form-submit">
-
 						<input type="submit" class="input-submit g-recaptcha" {# data-sitekey="6LfPPg4aAAAAAP6LwJZ0vZeBSvwO2WlWVPSZ7DQi" data-callback="onSubmit" data-action="submit" #} value="submit"/>
-
 					</div>
-
 				</form>
-
-
 			</div>
-
-
 		</section>
 	</div>
-
 {% endblock %}
