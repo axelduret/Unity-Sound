@@ -92,6 +92,9 @@ switch ($page) {
     case 'info':
         echo $twig->render('info.twig');
         break;
+    case 'audio':
+        echo $twig->render('audio.twig');
+        break;
     case 'video':
         echo $twig->render('video.twig', [
             'videos' => videos_fetch()
