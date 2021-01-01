@@ -1,4 +1,9 @@
-{% extends "layout.twig" %}
+{% extends "head.twig" %}
+{% block title %}
+	<title>{{site_name}}
+		-
+		{{ucFirst(current_page)}}</title>
+{% endblock title %}
 {% block content %}
 	<div id="video-page">
 		<main class="main-content col" role="main">

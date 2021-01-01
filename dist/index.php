@@ -49,6 +49,7 @@ if (isset($_SESSION['auth'])) {
 }
 
 $twig->addGlobal('current_page', $page);
+$twig->addGlobal('site_name', 'Unity Sound');
 
 $twig->addExtension(new custom_extensions());
 
