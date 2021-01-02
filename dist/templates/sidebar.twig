@@ -1,29 +1,35 @@
 <aside class="sidebar">
 	<div class="main-menu sticky-top">
-		<div class="row m-0 p-0 menu-title">
-			<div class="col-2 m-0 p-0 px-3 mr-2 text-center menu-title-item" style="min-width:16.666px;">
-				<i class="far fa-folder-open"></i>
-			</div>
-			<div class="col m-0 p-0 text-left d-sm-block menu-title-item" style="display:none">
-				MAIN MENU
+		<div class="menu-group">
+			<div class="row m-0 px-2">
+				<div class="col-2 m-0 p-0 text-center" style="min-width:16.666px;">
+					<i class="far fa-folder-open"></i>
+				</div>
+				<div class="col m-0 p-0 text-left d-sm-block menu-group-item" style="display:none">
+					MAIN MENU
+				</div>
 			</div>
 		</div>
 		{{ main_menu_sidebar() }}
-		<div class="row m-0 p-0 menu-title">
-			<div class="col-2 m-0 p-0 px-3 mr-2 text-center menu-title-item" style="min-width:16.666px;">
-				<i class="fas fa-compact-disc"></i>
-			</div>
-			<div class="col m-0 p-0 text-left d-sm-block menu-title-item" style="display:none">
-				MULTIMEDIA
+		<div class="menu-group">
+			<div class="row m-0 px-2">
+				<div class="col-2 m-0 p-0 text-center" style="min-width:16.666px;">
+					<i class="fas fa-compact-disc"></i>
+				</div>
+				<div class="col m-0 p-0 text-left d-sm-block menu-group-item" style="display:none">
+					MULTIMEDIA
+				</div>
 			</div>
 		</div>
 		{{ media_menu_sidebar() }}
-		<div class="row m-0 p-0 menu-title">
-			<div class="col-2 m-0 p-0 px-3 mr-2 text-center menu-title-item" style="min-width:16.666px;">
-				<i class="fas fa-users"></i>
-			</div>
-			<div class="col m-0 p-0 text-left d-sm-block menu-title-item" style="display:none">
-				MEMBERSHIP
+		<div class="menu-group">
+			<div class="row m-0 px-2">
+				<div class="col-2 m-0 p-0 text-center" style="min-width:16.666px;">
+					<i class="fas fa-users"></i>
+				</div>
+				<div class="col m-0 p-0 text-left d-sm-block menu-group-item" style="display:none">
+					MEMBERSHIP
+				</div>
 			</div>
 		</div>
 		{{ member_menu_sidebar() }}
