@@ -89,6 +89,46 @@ function media_menu_sidebar()
     }
 }
 
+function glossary_menu_sidebar()
+{
+
+    require __DIR__ . '/db.php';
+
+    $req = $pdo->query('SELECT * FROM pages WHERE subgroup = \'glossary\' AND published = \'1\' ORDER BY ordering ASC');
+
+    while ($page = $req->fetch(PDO::FETCH_ASSOC)) {
+
+        $name = htmlspecialchars($page['title']);
+        $title = strtoupper($name);
+        $url = strtolower($name);
+        $icon = htmlspecialchars($page['icon']);
+        $description = htmlspecialchars($page['description']);
+        $tooltip = ucwords($description);
+        $current_page = 'home';
+
+        if (isset($_GET['id'])) {
+            $current_page = $_GET['id'];
+        }
+        if ($url == $current_page) {
+            echo "<div class=\"menu-item-active shadow-sm\" title=\"$tooltip\">
+            <div class=\"row m-0 px-2\">
+            <div class=\"col-2 m-0 p-0 text-center\" style=\"min-width:16.666px\"><i class=\"$icon\"></i></div>
+            <div class=\"col m-0 p-0 pl-2 text-left\">$title</div>
+            </div>
+            </div>";
+        } else {
+            if ($url !== 'home') {
+                echo "<div class=\"menu-item shadow-sm\" title=\"$tooltip\" onClick=\"window.location='index.php?id=$url'\">
+            <div class=\"row m-0 px-2\">
+            <div class=\"col-2 m-0 p-0 text-center\" style=\"min-width:16.666px\"><i class=\"$icon\"></i></div>
+            <div class=\"col m-0 p-0 pl-2 text-left\">$title</div>
+            </div>
+            </div>";
+            }
+        }
+    }
+}
+
 function member_menu_sidebar()
 {
 
@@ -130,6 +170,44 @@ function member_menu_sidebar()
             <div class=\"col m-0 p-0 pl-2 text-left\">$title</div>
             </div>
             </div>";
+            }
+        }
+    }
+
+    if (isset($_SESSION['auth'])) {
+        if ($_SESSION['auth']->role != '0') {
+            $req = $pdo->query('SELECT * FROM pages WHERE subgroup = \'privatePage\' AND published = \'1\' ORDER BY ordering ASC');
+
+            while ($page = $req->fetch(PDO::FETCH_ASSOC)) {
+
+                $name = htmlspecialchars($page['title']);
+                $title = strtoupper($name);
+                $url = strtolower($name);
+                $icon = htmlspecialchars($page['icon']);
+                $description = htmlspecialchars($page['description']);
+                $tooltip = ucwords($description);
+                $current_page = 'home';
+
+                if (isset($_GET['id'])) {
+                    $current_page = $_GET['id'];
+                }
+                if ($url == $current_page) {
+                    echo "<div class=\"menu-item-active shadow-sm\" title=\"$tooltip\">
+            <div class=\"row m-0 px-2\">
+            <div class=\"col-2 m-0 p-0 text-center\" style=\"min-width:16.666px\"><i class=\"$icon\"></i></div>
+            <div class=\"col m-0 p-0 pl-2 text-left\">$title</div>
+            </div>
+            </div>";
+                } else {
+                    if ($url !== 'home') {
+                        echo "<div class=\"menu-item shadow-sm\" title=\"$tooltip\" onClick=\"window.location='index.php?id=$url'\">
+            <div class=\"row m-0 px-2\">
+            <div class=\"col-2 m-0 p-0 text-center\" style=\"min-width:16.666px\"><i class=\"$icon\"></i></div>
+            <div class=\"col m-0 p-0 pl-2 text-left\">$title</div>
+            </div>
+            </div>";
+                    }
+                }
             }
         }
     }

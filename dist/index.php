@@ -66,6 +66,10 @@ $twig->addFunction(new \Twig\TwigFunction('media_menu_sidebar', function () {
     media_menu_sidebar();
 }, ['is_safe' => ['html', 'javascript']]));
 
+$twig->addFunction(new \Twig\TwigFunction('glossary_menu_sidebar', function () {
+    glossary_menu_sidebar();
+}, ['is_safe' => ['html', 'javascript']]));
+
 $twig->addFunction(new \Twig\TwigFunction('member_menu_sidebar', function () {
     member_menu_sidebar();
 }, ['is_safe' => ['html', 'javascript']]));
@@ -128,6 +132,16 @@ switch ($page) {
         break;
     case 'account':
         echo $twig->render('account.twig', [
+            'user_id' => $user_id,
+            'user_name' => $user_name,
+            'user_email' => $user_email,
+            'user_token' => $user_token,
+            'user_date' => $user_date,
+            'user_role' => $user_role
+        ]);
+        break;
+    case 'admin':
+        echo $twig->render('admin.twig', [
             'user_id' => $user_id,
             'user_name' => $user_name,
             'user_email' => $user_email,

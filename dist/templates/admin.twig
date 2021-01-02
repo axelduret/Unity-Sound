@@ -14,21 +14,20 @@
 			<div class="content-titleDiv">
 				<div class="main-content-title">
 					<h1>
-						{{ ucWords(toLower(user_name)) }}&nbsp;{{ ucWords(toLower(current_page)) }}
+						{{ ucWords(toLower(current_page)) }}
 					</h1>
 				</div>
 			</div>
 			{% if user_role == '1' %}
 				<div class="content-innerDiv" style="margin-bottom:1rem;">
-					{{ include('adminAccount.twig') }}
+					{{ include('usersAdmin.twig') }}
+				</div>
+				<div class="content-innerDiv">
+					{{ include('videoAdmin.twig') }}
 				</div>
 			{% elseif user_role == '2' %}
-				<div class="content-innerDiv" style="margin-bottom:1rem;">
-					{{ include('editorAccount.twig') }}
-				</div>
-			{% else %}
-				<div class="content-innerDiv" style="margin-bottom:1rem;">
-					{{ include('userAccount.twig') }}
+				<div class="content-innerDiv">
+					{{ include('videoAdmin.twig') }}
 				</div>
 			{% endif %}
 		</section>
