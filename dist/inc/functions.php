@@ -267,8 +267,6 @@ function logout()
     unset($_SESSION['auth']);
 
     $_SESSION['flash']['success'] = "<i class=\"fas fa-check-circle\"></i>&nbsp;Successfully logged out";
-
-    header('Location: index.php');
 }
 
 function users_fetch()

@@ -157,6 +157,7 @@ switch ($page) {
         break;
     case 'logout':
         logout();
+        header('Location: index.php');
         break;
     case 'default':
         header('HTTP/1.0 404 Not Found');
