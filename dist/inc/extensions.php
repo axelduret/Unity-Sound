@@ -90,23 +90,23 @@ class custom_extensions extends \Twig\Extension\AbstractExtension
 
                 if ($user == null) {
 
-                    $_SESSION['flash']['error'] = "Wrong username or password";
+                    $_SESSION['flash']['error'] = "<i class=\"fas fa-exclamation-triangle\"></i>&nbsp;Wrong username or password";
                 } elseif (password_verify($_POST['password'], $user->password)) {
 
                     $_SESSION['auth'] = $user;
 
-                    $_SESSION['flash']['success'] = "Successfully logged in";
+                    $_SESSION['flash']['success'] = "<i class=\"fas fa-check-circle\"></i>&nbsp;Successfully logged in";
 
                     header('Location: ?id=account');
 
                     exit();
                 } else {
 
-                    $_SESSION['flash']['error'] = "Wrong username or password";
+                    $_SESSION['flash']['error'] = "<i class=\"fas fa-exclamation-triangle\"></i>&nbsp;Wrong username or password";
                 }
             } else {
 
-                $_SESSION['flash']['error'] = "Username and password are required";
+                $_SESSION['flash']['error'] = "<i class=\"fas fa-exclamation-triangle\"></i>&nbsp;Username and password are required";
             }
         }
     }
@@ -116,7 +116,7 @@ class custom_extensions extends \Twig\Extension\AbstractExtension
 
         if (!isset($_SESSION['auth'])) {
 
-            $_SESSION['flash']['error'] = "Access denied";
+            $_SESSION['flash']['error'] = "<i class=\"fas fa-ban\"></i>&nbsp;Access denied";
 
             header('Location: ?id=login');
 
@@ -135,7 +135,7 @@ class custom_extensions extends \Twig\Extension\AbstractExtension
 
             if (empty($_POST['username']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['username'])) {
 
-                $errors['username'] = "Invalid username";
+                $errors['username'] = "<i class=\"fas fa-exclamation-triangle\"></i>&nbsp;Invalid username";
             } else {
 
                 $req = $pdo->prepare('SELECT id FROM users WHERE username = ?');
@@ -146,13 +146,13 @@ class custom_extensions extends \Twig\Extension\AbstractExtension
 
                 if ($user) {
 
-                    $errors['username'] = 'This username already exists';
+                    $errors['username'] = "<i class=\"fas fa-exclamation-triangle\"></i>&nbsp;This username already exists";
                 }
             }
 
             if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 
-                $errors['email'] = "Invalid email";
+                $errors['email'] = "<i class=\"fas fa-exclamation-triangle\"></i>&nbsp;Invalid email";
             } else {
 
                 $req = $pdo->prepare('SELECT id FROM users WHERE email = ?');
@@ -163,13 +163,13 @@ class custom_extensions extends \Twig\Extension\AbstractExtension
 
                 if ($user) {
 
-                    $errors['email'] = 'This email already exists';
+                    $errors['email'] = "<i class=\"fas fa-exclamation-triangle\"></i>&nbsp;This email already exists";
                 }
             }
 
             if (empty($_POST['password']) || $_POST['password'] != $_POST['password_confirm']) {
 
-                $errors['password'] = "Invalid password";
+                $errors['password'] = "<i class=\"fas fa-exclamation-triangle\"></i>&nbsp;Invalid password";
             }
 
             if (empty($errors)) {
@@ -186,7 +186,7 @@ class custom_extensions extends \Twig\Extension\AbstractExtension
 
                 mail($_POST['email'], 'Unity Sound - Confirm your email adress', "Please, click the link below to validate your account on Unity Sound website\n\nhttp://unitysound.ch/index.php?id=confirm&user=$user_id&token=$token");
 
-                $_SESSION['flash']['success'] = "Thank you for registering Unity Sound Website<br/>Confirmation has been sent to you by email";
+                $_SESSION['flash']['success'] = "<i class=\"fas fa-check-circle\"></i>&nbsp;Thank you for registering Unity Sound Website<br/>Confirmation has been sent to you by email";
 
                 header('Location: index.php');
 
@@ -198,7 +198,7 @@ class custom_extensions extends \Twig\Extension\AbstractExtension
 
             echo '<div class="content-errorDiv">
     
-                <p>Error trying register new account :</p><ul>';
+                <p>Error trying register new account :</p><ul style="list-style-type: none">';
 
             foreach ($errors as $error) {
 

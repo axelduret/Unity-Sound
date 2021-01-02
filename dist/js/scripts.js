@@ -7,7 +7,7 @@
 
   /* All pages */
   /* Close flash message when clicking on itself */
-  if (($(".content-successDiv").length) || ($(".content-errorDiv").length)) {
+  if (($(".content-successDiv").length) || ($(".content-errorDiv").length) || ($(".content-warningDiv").length)) {
     /* Success message */
     $(".content-successDiv")
       .append("<div class='text-right w-100 m-0 p-0 pr-4' style='position:absolute; top:0.5rem'><i class='fas fa-times'></i></div>")
@@ -21,6 +21,13 @@
       .appendTo(".content-errorDiv");
     $(".content-errorDiv").on('click', function (_e) {
       $(".content-errorDiv").remove();
+    });
+    /* Warning message */
+    $(".content-warningDiv")
+      .append("<div class='text-right w-100 m-0 p-0 pr-4' style='position:absolute; top:0.5rem'><i class='fas fa-times'></i></div>")
+      .appendTo(".content-warningDiv");
+    $(".content-warningDiv").on('click', function (_e) {
+      $(".content-warningDiv").remove();
     });
   }
 

@@ -249,14 +249,14 @@ function confirm_account()
 
         $pdo->prepare('UPDATE users SET confirmation_token = NULL, confirmed_at = NOW() WHERE id = ?')->execute([$user_id]);
 
-        $_SESSION['flash']['success'] = "Successful validation";
+        $_SESSION['flash']['success'] = "<i class=\"fas fa-check-circle\"></i>&nbsp;Successful validation";
 
         $_SESSION['auth'] = $user;
 
         header('Location: ?id=account');
     } else {
 
-        $_SESSION['flash']['error'] = "Invalid token";
+        $_SESSION['flash']['error'] = "<i class=\"fas fa-exclamation-triangle\"></i>&nbsp;Invalid token";
 
         header('Location: ?id=login');
     }
@@ -266,7 +266,7 @@ function logout()
 {
     unset($_SESSION['auth']);
 
-    $_SESSION['flash']['success'] = "Successfully logged out";
+    $_SESSION['flash']['success'] = "<i class=\"fas fa-check-circle\"></i>&nbsp;Successfully logged out";
 
     header('Location: index.php');
 }
