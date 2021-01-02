@@ -1,0 +1,76 @@
+{% extends "head.twig" %}
+{% block title %}
+	<title>{{site_name}}
+		-
+		{{ucFirst(current_page)}}</title>
+{% endblock title %}
+{% block content %}
+	<div id="page">
+		<section class="main-content col" role="main">
+			{{flash_alert()}}
+			<div class="content-titleDiv">
+				<div class="main-content-title">
+					<h1>
+						Sound System
+					</h1>
+				</div>
+			</div>
+			<div class="info-innerDiv mb-0">
+				<div class="info-paragraphDiv shadow" id="info-paragraphDiv7">The sound system concept first became popular in the 1940s, in the parish of Kingston. DJs would load up a truck with a generator, turntables, and huge speakers and set up street parties. Tom the Great Sebastian, founded by Chinese-Jamaican businessman Tom Wong, was the first commercially successful sound system and influenced many sound systems that came later. In the beginning, the DJs played American rhythm and blues music, but as time progressed and more local music was created, the sound migrated to a local flavour. The sound systems were big business, and represented one of the few sure ways to make money in the unstable economy of the area. The promoter or DJ made his profit by charging admission and selling food and alcohol; often thousands of people were in attendance.
+				</div>
+				<div class="info-imgDiv shadow" id="info-imgDiv5">
+					<img src="img/info/sound/img001.png" class="info-img" alt="Unity Sound">
+				</div>
+				<div class="info-paragraphDiv shadow" id="info-paragraphDiv8">The popularity of a sound system was mainly contingent on one thing: having new music. In order to circumvent the release cycle of the American record labels, the two sound system superstars turned to record production. Initially, they produced only singles for their own sound systems, known as "Exclusives" or Dubplates—a limited run of one copy per song. What began as an attempt to replicate the American R&B sound using local musicians evolved into a uniquely Jamaican musical genre: ska. This shift was due partly to the fact that as American-style R&B was embraced by a largely white, teenage audience and evolved into rock and roll, sound system owners created—and played—a steady stream of the singles the people preferred: fast-shuffle boogies and ballads. In response to this shift in supply, Jamaican producers introduced to their work some of the original elements of the Jamaican sound: rhythm guitars strumming the offbeat and snare-drum emphasis on the third beat, for example. As this new musical form became more popular, both Dodd and Reid began to move more seriously into music production. Coxsone Dodd's production studio became the famous Studio One, while Duke Reid founded Treasure Isle.
+				</div>
+				<div class="info-paragraphDiv shadow" id="info-paragraphDiv9">By the mid-1950s, sound systems were more popular at parties than live musicians, and by the second half of the decade, custom-built systems began to appear from the workshops of specialists such as Hedley Jones, who constructed wardrobe-sized speaker cabinets known as "House[s] of Joy". It was also around this time that Jamaica's first superstar DJ and MC, Count Machuki, rose to prominence. As time progressed, sound systems became louder—capable of playing bass frequencies at 30,000 watts or more, with similar wattage attainable at the mid-range and high frequencies—and far more complex than their predecessors. Competition between these sound systems was fierce, and eventually two DJs emerged as the stars of the scene: Clement "Coxsone" Dodd, and Duke Reid. Besides the DJ, who rapped over the music, there was also a selector, who selected the music/rhythm tracks.
+				</div>
+				<div class="info-imgDiv shadow" id="info-imgDiv6">
+					<img src="img/info/sound/img002.jpg" class="info-img" alt="Unity Sound">
+				</div>
+				<div class="info-paragraphDiv shadow" id="info-paragraphDiv10">As sound systems continued to gain in popularity through the 1960s and 1970s, they became politicized in many instances. The ‘DJs would often satirize current affairs and local events, taking on a “singing newspaper” role. Many sound systems, and their owners, were labelled as supporters of a particular political party (such as the PNP or the JLP), but most of the sound systems tried to maintain political neutrality. Nevertheless, as a cultural and economic phenomenon, the sound system was affected by the vast socio-political changes taking place in Jamaica at this time.
+				</div>
+				<div class="info-paragraphDiv shadow" id="info-paragraphDiv11">An important part of sound system culture is the sound clash, an organized battle between two systems. The Guinness Sounds of Greatness is one of many such clashes. In 2009, the Guinness clash was organized into three parts: a "juggling" round, where each system gets 15 minutes to get the crowd going; a "tune fe tune" exchange of "commercial releases"; and a "dub-fe-dub", when the systems alternate "specials done specifically for the sound system playing the recording".
+				</div>
+				<div class="info-paragraphDiv shadow" id="info-paragraphDiv12">The culture of the Sound System was brought to the UK with the mass immigration of Jamaicans in the 1960s and 1970s. Notable UK Sound Systems include Sir Coxsone Outernational Jah Shaka, Channel One, Aba Shanti-I, Jah Observer, Quaker City, Iration Steppas, Fatman International and Saxon Studio International. One of the first sound systems in the United States was Downbeat the Ruler, founded in Bronx, New York, in the late 1970s.
+				</div>
+				<div class="info-paragraphDiv shadow" id="info-paragraphDiv13">These sound systems were the method in which these migrants were able to maintain their cultural connection with their roots. They broadcast the remixed samples of reggae beats and created an underground music culture. This culture was separate from the larger population which relied on the radio to provide popular music. These sound systems were played in warehouses, clubs, and street corners. This was not simply just music played on the radio for a few people to hear, but a culture that involved many people was developed out of being consumed by sound through large sound systems. Sound system culture presented what Julian Henriques refers to as sonic dominance. He is strategic in his usage of the word dominance because it is visceral and this term embodies the "power and the pleasure of the sonic". The sound is an "enveloping, immersive, and intense experience". The experience is so strong that "sounds carry people, as much as people carry sounds; 'vibes' find bodies to move". Dance acts as a natural, immediate response to dancehall sounds, and as Henriques puts it, "bodies have no musical burden to bear; rather they are borne along, even berthed, by music."
+				</div>
+				<div class="info-imgDiv shadow" id="info-imgDiv7">
+					<img src="img/info/sound/img003.jpg" class="info-img" alt="Unity Sound">
+				</div>
+				<div class="info-paragraphDiv shadow" id="info-paragraphDiv14">According to Henriques, the sound system has also played an influential role in the global influence of Jamaican music internationally. It has "proved itself to be one of the most efficient of musical distribution mechanisms," which has resulted in Jamaican music's influence on genres such as Hip hop, Jungle, and Dubstep. While part of its influence can literally be credited to its superior audio fidelity over radio, the sound system also acts as a symbolic transmitter of shared experiences across the African diaspora.
+				</div>
+				<div class="info-linkDiv shadow d-sm-none" id="info-linkDiv1">
+					<span>
+						<a href="https://en.wikipedia.org/wiki/Sound_system_(Jamaican)" target="source" title="Source">
+							<i class="fas fa-link"></i>
+							{{ "https://en.wikipedia.org/wiki/Sound_system_(Jamaican)"|u.truncate(37, '...') }}
+						</a>
+					</span>
+				</div>
+				<div class="info-linkDiv shadow d-sm-block" id="info-linkDiv1" style="display:none;">
+					<span>
+						<a href="https://en.wikipedia.org/wiki/Sound_system_(Jamaican)" target="source" title="Source">
+							<i class="fas fa-link"></i>
+							https://en.wikipedia.org/wiki/Sound_system_(Jamaican)
+						</a>
+					</span>
+				</div>
+				<div class="info-badgeDiv text-right shadow" id="info-badgeDiv1">
+					<span class="my-2 mx-0 p-0">
+						<span class="badge-success text-dark mr-1 pl-1 rounded">
+							<i class="fas fa-compact-disc"></i>
+						</span>
+						<span class="badge-warning text-dark mx-1 pl-1 rounded">
+							<i class="fas fa-guitar"></i>
+						</span>
+						<span class="badge-danger text-dark ml-1 px-1 rounded">
+							<i class="fas fa-drum"></i>
+						</span>
+					</span>
+				</div>
+			</div>
+		</section>
+	</div>
+{% endblock %}

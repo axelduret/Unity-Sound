@@ -112,17 +112,17 @@ switch ($page) {
     case 'reggae':
         echo $twig->render('reggae.twig');
         break;
-    case 'soundsystem':
-        echo $twig->render('soundsystem.twig');
+    case 'sound':
+        echo $twig->render('sound.twig');
         break;
-    case 'soundclash':
-        echo $twig->render('soundclash.twig');
+    case 'clash':
+        echo $twig->render('clash.twig');
         break;
     case 'dubplate':
         echo $twig->render('dubplate.twig');
         break;
-    case 'loudspeaker':
-        echo $twig->render('loudspeaker.twig');
+    case 'speaker':
+        echo $twig->render('speaker.twig');
         break;
     case 'login':
         echo $twig->render('login.twig');

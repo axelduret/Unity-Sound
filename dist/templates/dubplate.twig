@@ -1,0 +1,67 @@
+{% extends "head.twig" %}
+{% block title %}
+	<title>{{site_name}}
+		-
+		{{ucFirst(current_page)}}</title>
+{% endblock title %}
+{% block content %}
+	<div id="page">
+		<section class="main-content col" role="main">
+			{{flash_alert()}}
+			<div class="content-titleDiv">
+				<div class="main-content-title">
+					<h1>
+						Dubplate
+					</h1>
+				</div>
+			</div>
+			<div class="info-innerDiv mb-0">
+				<div class="info-paragraphDiv shadow" id="info-paragraphDiv1">A dubplate is an acetate disc usually of 10 inches diameter, traditionally used by studios to test recordings prior to mastering for the subsequent pressing of a vinyl record, but pioneered by reggae sound systems as a way to play exclusive music. They would later become an important facet of the jungle/drum and bass, UK garage, grime and dubstep music scenes.
+				</div>
+				<div class="info-imgDiv shadow" id="info-imgDiv4">
+					<img src="img/info/dubplate/img001.jpg" class="info-img" alt="Dubplate">
+				</div>
+				<div class="info-paragraphDiv shadow" id="info-paragraphDiv1">The first use of dubplates is commonly attributed to sound engineer King Tubby and reggae sound systems such as Lloyd Coxsone and Killamanjaro. Special and one-off versions would be cut to acetate for competing in a sound clash, utilising vocals specially recorded to namecheck the sound system. As such, these would become known as "dubplate specials" often remarking on the prowess of the sound system playing it, in a bid to win the clash.
+				</div>
+				<div class="info-imgDiv shadow" id="info-imgDiv2">
+					<img src="img/info/dubplate/img002.jpg" class="info-img" alt="Dubplate">
+				</div>
+				<div class="info-paragraphDiv shadow" id="info-paragraphDiv9">In the UK, the earliest place to cut reggae dubplates would also be one of the most unlikely. John Hassell and his wife ran a recording studio from their suburban house in Barnes, South West London, but would become key to British sound systems and artists such as Dennis Bovell. Throughout the 1980s and 1990s, Music House in North London and JTS Studio in East London would become the two most prominent "cutting houses".
+				</div>
+				<div class="info-paragraphDiv shadow" id="info-paragraphDiv9">Whilst acetates have been used in the music industry for many years, especially in dance music, dubplates would become a particularly important part of the jungle/drum and bass scene throughout the 1990s. This would be followed through its descendants UK garage, grime and dubstep, and cutting houses such as Transition. New music would regularly be composed and recorded onto DAT tape in order for it to be cut onto dubplate, often so that it could be played that weekend (or even that night).
+				</div>
+				<div class="info-paragraphDiv shadow" id="info-paragraphDiv6">Despite the shift to DJing on digital mediums such as CDJs and DJ controllers, dubplates continue to be used for playing exclusive music and have also gained a specialist market in recent years.
+				</div>
+				<div class="info-linkDiv shadow d-sm-none" id="info-linkDiv1">
+					<span>
+						<a href="https://en.wikipedia.org/wiki/Dubplate" target="source" title="Source">
+							<i class="fas fa-link"></i>
+							{{ "https://en.wikipedia.org/wiki/Dubplate"|u.truncate(37, '...') }}
+						</a>
+					</span>
+				</div>
+				<div class="info-linkDiv shadow d-sm-block" id="info-linkDiv1" style="display:none;">
+					<span>
+						<a href="https://en.wikipedia.org/wiki/Dubplate" target="source" title="Source">
+							<i class="fas fa-link"></i>
+							https://en.wikipedia.org/wiki/Dubplate
+						</a>
+					</span>
+				</div>
+				<div class="info-badgeDiv text-right shadow" id="info-badgeDiv1">
+					<span class="my-2 mx-0 p-0">
+						<span class="badge-success text-dark mr-1 pl-1 rounded">
+							<i class="fas fa-compact-disc"></i>
+						</span>
+						<span class="badge-warning text-dark mx-1 pl-1 rounded">
+							<i class="fas fa-guitar"></i>
+						</span>
+						<span class="badge-danger text-dark ml-1 px-1 rounded">
+							<i class="fas fa-drum"></i>
+						</span>
+					</span>
+				</div>
+			</div>
+		</section>
+	</div>
+{% endblock %}
