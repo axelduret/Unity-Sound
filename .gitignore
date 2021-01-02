@@ -2,11 +2,12 @@ node_modules
 src
 vendor
 
-composer.lock
 package-lock.json
 uploadProcess.md
 
 dist/error
 dist/tmp
+
+dist/composer.lock
 dist/robots.txt
 dist/.htaccess

@@ -11,8 +11,11 @@ require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/inc/functions.php';
 require __DIR__ . '/inc/extensions.php';
 
+use Twig\Environment;
+use Twig\Extra\String\StringExtension;
+
 $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/templates');
-$twig = new \Twig\Environment($loader, [
+$twig = new Environment($loader, [
     'cache' => false // __DIR__ . '/tmp'
 ]);
 
@@ -50,6 +53,8 @@ if (isset($_SESSION['auth'])) {
 
 $twig->addGlobal('current_page', $page);
 $twig->addGlobal('site_name', 'Unity Sound');
+
+$twig->addExtension(new StringExtension());
 
 $twig->addExtension(new custom_extensions());
 
@@ -99,6 +104,21 @@ switch ($page) {
         echo $twig->render('video.twig', [
             'videos' => videos_fetch()
         ]);
+        break;
+    case 'reggae':
+        echo $twig->render('reggae.twig');
+        break;
+    case 'soundsystem':
+        echo $twig->render('soundsystem.twig');
+        break;
+    case 'soundclash':
+        echo $twig->render('soundclash.twig');
+        break;
+    case 'dubplate':
+        echo $twig->render('dubplate.twig');
+        break;
+    case 'loudspeaker':
+        echo $twig->render('loudspeaker.twig');
         break;
     case 'login':
         echo $twig->render('login.twig');
