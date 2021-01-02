@@ -1,4 +1,4 @@
-<div>
+<div class="theadNoScrollbar">
 	<table class="table table-dark m-0 p-0">
 		<thead class="badge-danger">
 			<tr>
@@ -15,7 +15,7 @@
 		</thead>
 	</table>
 </div>
-<div style=" overflow:scroll; overflow-x:hidden; max-height:415px;">
+<div class="tbodyScrollbar">
 	<table class="table table-striped table-dark">
 		<tbody>
 			{% for user in users %}
@@ -32,7 +32,7 @@
 					<td style="width:90px;">
 						{% if user.role == '1' %}Admin
 							{% elseif user.role == '2' %}Editor
-							{% else %}No role
+							{% else %}Member
 						{% endif %}
 					</td>
 					<td class="text-center table-active tdEdit" title="Modifier" style="width:52px; cursor:pointer;">
