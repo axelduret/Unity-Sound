@@ -4,7 +4,7 @@
 <p>Last Update : 03.01.2021</p>
 <p>Author : Axel Duret</p>
 <p>Copyright : Unity Sound System 2002-2021 &copy;</p>
-<p>Licensed under MIT (https://github.com/axelfaya/Unity-Sound/blob/master/LICENSE)</p>
+<p>Licensed under MIT (https://github.com/axelfaya/Unity-Sound/blob/master/LICENSE.md)</p>
 
 <p>PHP version : 7.4.11</p>
 <p>DB Server : 10.4.14-MariaDB - mariadb.org</p>
