@@ -1,6 +1,6 @@
 /* Axel Web Dev */
 /* Copyright 2002-2021 Unity Sound System */
-/* Licensed under MIT (https://github.com/axelfaya/Unity-Sound/blob/master/LICENSE) */
+/* Licensed under MIT (https://github.com/axelfaya/Unity-Sound/blob/master/LICENSE.md) */
 
 /* Start Custom JQuery Functions */
 (function ($) {
