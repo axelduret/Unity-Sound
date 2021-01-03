@@ -1,10 +1,9 @@
-<h1><a href="http://unitysound.ch">Unity Sound System</a></h1>
+<h1><a href="https://unitysound.ch">Unity Sound Website</a></h1>
 
-<p>Beta Version</p>
 <p>Released Date : 20.12.2020</p>
-<p>Last Update : not defined yet</p>
+<p>Last Update : 03.01.2021</p>
 <p>Author : Axel Duret</p>
-<p>Copyright : Unity Sound System 2002-2020 &copy;</p>
+<p>Copyright : Unity Sound System 2002-2021 &copy;</p>
 <p>Licensed under MIT (https://github.com/axelfaya/Unity-Sound/blob/master/LICENSE)</p>
 
 <p>PHP version : 7.4.11</p>
