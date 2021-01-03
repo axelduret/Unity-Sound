@@ -44,7 +44,7 @@ if (isset($_SESSION['auth'])) {
     $user_role = $_SESSION['auth']->role;
 } else {
     $user_id = "";
-    $user_name = "Anonymous";
+    $user_name = "";
     $user_email = "";
     $user_token = "";
     $user_date = "";
@@ -96,7 +96,9 @@ $twig->addFunction(new \Twig\TwigFunction('users_fetch', function () {
 
 switch ($page) {
     case 'home':
-        echo $twig->render('home.twig');
+        echo $twig->render('home.twig', [
+            'user_name' => $user_name
+        ]);
         break;
     case 'info':
         echo $twig->render('info.twig');
