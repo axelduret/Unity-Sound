@@ -10,3 +10,4 @@ dist/tmp
 dist/composer.lock
 dist/robots.txt
 dist/.htaccess
+dist/.htaccess.000
